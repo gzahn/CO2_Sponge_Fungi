@@ -1,0 +1,16 @@
+[1] "Spatial vs community distance..."
+
+Mantel statistic based on Pearson's product-moment correlation 
+
+Call:
+vegan::mantel(xdis = spatial.dist, ydis = comm.dist) 
+
+Mantel statistic r: -0.001861 
+      Significance: 0.514 
+
+Upper quantiles of permutations (null model):
+   90%    95%  97.5%    99% 
+0.0218 0.0306 0.0351 0.0385 
+Permutation: free
+Number of permutations: 999
+
