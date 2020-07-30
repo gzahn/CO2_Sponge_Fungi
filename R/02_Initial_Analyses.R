@@ -7,6 +7,7 @@
 #                     phyloseq v 1.30.0
 #                     purrr v 0.3.4
 #                     vegan v 2.5.6
+#                     treeheatr v 0.1.0
 # -----------------------------------------------------------------------------#
 
 
@@ -15,6 +16,7 @@ library(phyloseq); packageVersion("phyloseq")
 library(tidyverse); packageVersion("tidyverse")
 library(vegan); packageVersion("vegan")
 library(purrr); packageVersion("purrr")
+library(treeheatr); packageVersion("treeheatr")
 
 source("./R/palettes.R")
 source("./R/plot_bar2.R")
@@ -24,6 +26,22 @@ theme_set(theme_bw())
 
 # IMPORT DATA ####
 ps <- readRDS("./output/clean_phyloseq_object.RDS")
+
+# Investigate UNITE assignments at each taxon level
+ps_sp <- ps
+phy <- !is.na(tax_table(ps_sp)[,2])
+cla <- !is.na(tax_table(ps_sp)[,3])
+ord <- !is.na(tax_table(ps_sp)[,4])
+fam <- !is.na(tax_table(ps_sp)[,5])
+gen <- !is.na(tax_table(ps_sp)[,6])
+spp <- !is.na(tax_table(ps_sp)[,7])
+assignments_sponge <- data.frame(Phylum=phy, Class=cla,Order=ord,Family=fam,Genus=gen,Species=spp)
+
+assignments_sponge %>% pivot_longer(1:6) %>% mutate(name=factor(name,levels = c("Phylum","Class","Order","Family","Genus","Species"))) %>%
+ggplot(aes(x=name,fill=value)) + geom_bar() + scale_fill_manual(values=c("Gray","Black")) +
+  labs(x="Taxonomic level",y="Count",fill="Unambiguous\nassignment")
+ggsave("./output/figs/UNITE_Taxonomic_Assignment_Efficiency_at_Each_Taxonomic_Rank.png",dpi=300)
+rm(phy,cla,ord,fam,gen,spp,assignments_sponge,ps_sp)
 
 # remove "NA" Phylum taxa
 ps <- subset_taxa(ps,!is.na(tax_table(ps)[,2]))
@@ -57,8 +75,7 @@ sink("./output/Sample_N_for_groups_Acidification_and_SpongeSpecies.txt")
 table(ps@sam_data$Acidified,ps@sam_data$Sponge_Species)
 sink(NULL)
 
-# Relative abundance Bar Plots ####
-
+# Merge samples for plotting ####
 # merge based on sponge species and acidification
 newvar <- paste(ps@sam_data$Sponge_Species,ps@sam_data$Acidified,sep="_")
 ps@sam_data$newvar <- newvar
@@ -68,7 +85,42 @@ ps_merged <- merge_samples(ps,newvar)
 ps_merged@sam_data$Sponge_Species <- unlist(map(str_split(sample_names(ps_merged),"_"),1))
 ps_merged@sam_data$Acidified <- unlist(map(str_split(sample_names(ps_merged),"_"),2))
 
-# Basic plots of diversity for overall data
+# Quick heatmaps ####
+# phylum
+p <- ps_merged %>% tax_glom("Phylum") %>%
+  transform_sample_counts(function(x){x/sum(x)}) %>%
+  plot_heatmap(taxa.label = "Phylum",sample.label = "Sponge_Species") + 
+  facet_grid(~Acidified,scales="free") + theme(strip.background = element_blank(), strip.text = element_text(face="bold")) + labs(x="Sponge species")
+p$scales$scales[[3]]$name <- "Relative\nabundance"
+p
+ggsave("./output/figs/Heatmap_Phylum_RelAbund_by_Sponge_Species.png",dpi=300)
+# class
+p <- ps_merged %>% tax_glom("Class") %>%
+  transform_sample_counts(function(x){x/sum(x)}) %>%
+  plot_heatmap(taxa.label = "Class",sample.label = "Sponge_Species") + 
+  facet_grid(~Acidified,scales="free") + theme(strip.background = element_blank(), strip.text = element_text(face="bold")) + labs(x="Sponge species")
+p$scales$scales[[3]]$name <- "Relative\nabundance"
+p
+ggsave("./output/figs/Heatmap_Class_RelAbund_by_Sponge_Species.png",dpi=300)
+# order
+p <- ps_merged %>% tax_glom("Order") %>%
+  transform_sample_counts(function(x){x/sum(x)}) %>%
+  plot_heatmap(taxa.label = "Order",sample.label = "Sponge_Species") + 
+  facet_grid(~Acidified,scales="free") + theme(strip.background = element_blank(), strip.text = element_text(face="bold")) + labs(x="Sponge species")
+p$scales$scales[[3]]$name <- "Relative\nabundance"
+p
+ggsave("./output/figs/Heatmap_Order_RelAbund_by_Sponge_Species.png",dpi=300)
+# alternate view
+p <- ps_merged %>% tax_glom("Phylum") %>%
+  transform_sample_counts(function(x){x/sum(x)}) %>%
+  plot_heatmap(taxa.label = "Phylum",sample.label = "Acidified") + 
+  facet_grid(~Sponge_Species,scales="free") + theme(strip.background = element_blank(), strip.text = element_text(face="bold")) + labs(x="Sponge species")
+p$scales$scales[[3]]$name <- "Relative\nabundance"
+p
+ggsave("./output/figs/Heatmap_Phylum_Alternate_Layout.png",dpi=300)
+
+
+# Diversity BarPlots ####
 # stacked boxplots x-axis=Acidification, y-axis relative-abundance
 
 # Phylum
