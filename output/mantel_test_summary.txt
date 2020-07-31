@@ -5,12 +5,12 @@ Mantel statistic based on Pearson's product-moment correlation
 Call:
 vegan::mantel(xdis = spatial.dist, ydis = comm.dist) 
 
-Mantel statistic r: -0.001861 
-      Significance: 0.514 
+Mantel statistic r: -0.000398 
+      Significance: 0.504 
 
 Upper quantiles of permutations (null model):
    90%    95%  97.5%    99% 
-0.0218 0.0306 0.0351 0.0385 
+0.0300 0.0373 0.0470 0.0570 
 Permutation: free
 Number of permutations: 999
 

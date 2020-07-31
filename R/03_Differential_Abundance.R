@@ -65,7 +65,7 @@ if(length(da_analysis$significant_models) > 0){
 length(fire_bbdml)
 
 plot_multi_bbdml(bbdml_list = fire_bbdml,
-                 color = "FireTreatment",
+                 color = "Acidified",
                  pointsize = 3)
 }
 
@@ -92,7 +92,7 @@ if(length(da_analysis$significant_models) > 0){
   length(fire_bbdml)
   
   plot_multi_bbdml(bbdml_list = fire_bbdml,
-                   color = "FireTreatment",
+                   color = "Acidified",
                    pointsize = 3)
 }
 
@@ -222,8 +222,42 @@ if(length(da_analysis$significant_models) > 0){
 ggsave("./output/figs/DA_Plot_Genus-Level_Sponge-Species.png", height = 6, width = 14,dpi = 300)
 
 
-#####################################################################
+###################### pH level #############################
 
+# genus-level ##
+ps_genus_pH <- 
+
+set.seed(123)
+da_analysis <- differentialTest(formula = ~ factor(pH), #abundance
+                                phi.formula = ~ factor(pH), #dispersion
+                                formula_null = ~ 1, #mean
+                                phi.formula_null = ~ 1,
+                                test = "Wald", boot = FALSE,
+                                data = ps_genus,
+                                fdr_cutoff = 0.05)
+
+plot(da_analysis)
+ggsave("./output/figs/DA_Plot_Genus-Level_pH_Overall_Plot.png",width = 12,height = 6,dpi = 300)
+
+
+
+if(length(da_analysis$significant_models) > 0){
+  
+  
+  bbdml_obj <- multi_bbdml(da_analysis,
+                           ps_object = ps_genus,
+                           mu_predictor = "pH",
+                           phi_predictor = "pH",
+                           taxlevels = 2:7)
+  length(bbdml_obj)
+  
+  plot_multi_bbdml(bbdml_list = bbdml_obj,
+                   color = "pH",
+                   pointsize = 3)
+}
+
+bbdml_plot_1
+ggsave("./output/figs/DA_Plot_Genus-Level_pH.png",dpi=300)
 
 
 

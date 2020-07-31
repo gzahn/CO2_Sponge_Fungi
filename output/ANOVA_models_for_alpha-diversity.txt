@@ -1,0 +1,34 @@
+Call:
+   aov(formula = Shannon ~ Sampling_Site * Sponge_Species, data = meta2)
+
+Terms:
+                Sampling_Site Sponge_Species Sampling_Site:Sponge_Species Residuals
+Sum of Squares        5.04304        2.41954                      7.26686  49.60302
+Deg. of Freedom             5              3                           10        77
+
+Residual standard error: 0.8026177
+5 out of 24 effects not estimable
+Estimated effects may be unbalanced
+                             Df Sum Sq Mean Sq F value Pr(>F)
+Sampling_Site                 5   5.04  1.0086   1.566  0.180
+Sponge_Species                3   2.42  0.8065   1.252  0.297
+Sampling_Site:Sponge_Species 10   7.27  0.7267   1.128  0.353
+Residuals                    77  49.60  0.6442               
+Call:
+   aov(formula = Richness ~ Sampling_Site * Sponge_Species, data = meta2)
+
+Terms:
+                Sampling_Site Sponge_Species Sampling_Site:Sponge_Species Residuals
+Sum of Squares       10384.77        4042.70                      4655.05  56979.44
+Deg. of Freedom             5              3                           10        77
+
+Residual standard error: 27.20281
+5 out of 24 effects not estimable
+Estimated effects may be unbalanced
+                             Df Sum Sq Mean Sq F value Pr(>F)  
+Sampling_Site                 5  10385  2077.0   2.807 0.0221 *
+Sponge_Species                3   4043  1347.6   1.821 0.1503  
+Sampling_Site:Sponge_Species 10   4655   465.5   0.629 0.7846  
+Residuals                    77  56979   740.0                 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

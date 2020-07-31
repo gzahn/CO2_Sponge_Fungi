@@ -7,7 +7,7 @@
 #                     phyloseq v 1.30.0
 #                     purrr v 0.3.4
 #                     vegan v 2.5.6
-#                     treeheatr v 0.1.0
+#                     ggpubr v 0.4.0
 # -----------------------------------------------------------------------------#
 
 
@@ -16,7 +16,8 @@ library(phyloseq); packageVersion("phyloseq")
 library(tidyverse); packageVersion("tidyverse")
 library(vegan); packageVersion("vegan")
 library(purrr); packageVersion("purrr")
-library(treeheatr); packageVersion("treeheatr")
+library(ggpubr); packageVersion("ggpubr")
+# library(treeheatr); packageVersion("treeheatr")
 
 source("./R/palettes.R")
 source("./R/plot_bar2.R")
@@ -185,16 +186,184 @@ ggsave("./output/figs/Class_Diversity_BarChart_by_Site.png",dpi=300)
 # Consider, first, the data without Seawater samples...not sure how to treat those...
 meta2 <- meta[meta$Sponge_Species != "Seawater",]
 mod1 <- glm(data = meta2, 
-    Richness ~ Acidified * Sponge_Species)
+    Richness ~ pH + Sponge_Species)
 summary(mod1)
 
 mod2 <- glm(data = meta2, 
-            Shannon ~ Acidified * Sponge_Species)
+            Shannon ~ pH + Sponge_Species)
 summary(mod2)
 
 
 # ... Does not seem to be an effect for alpha diversity based on sponge species or acidification
 
+# look at nestedness of species within sampling site
+table(meta2$Sponge_Species,meta2$Sampling_Site)
+
+# ANOVA of diversity by site
+mod3 <- aov(data = meta2,
+            Shannon ~ Sampling_Site * Sponge_Species)
+summary(mod3)
+
+mod3b <- aov(data = meta2,
+             Richness ~ Sampling_Site * Sponge_Species)
+summary(mod3b)
+
+
+sink("./output/ANOVA_models_for_alpha-diversity.txt")
+mod3
+summary(mod3)
+mod3b
+summary(mod3b)
+sink(NULL)
+
+# look at cave vs non-cave sites
+meta2 <- meta2 %>% mutate(LightStatus = case_when(Sampling_Site == "GM" ~ "Cave",
+                                  Sampling_Site != "GM" ~ "Open"))
+mod4 <- glm(data = meta2,
+            Shannon ~ LightStatus * Sponge_Species)
+summary(mod4) # not significant
+mod5 <- glm(data = meta2,
+            Shannon ~ LightStatus * Sponge_Species)
+summary(mod5) # not significant
+
+
+# Alpha diversity comparison tables and more plots ####
+p1 <- meta %>% 
+  ggdensity(x="Richness", add = "median",
+            color = "Sponge_Species",fill="Sponge_Species",
+            rug = TRUE, facet.by = "Acidified") +
+  theme(strip.background = element_blank(),
+        strip.text = element_text(face="bold",size=14),
+        legend.text = element_text(face = "italic"),
+        axis.title = element_text(face="bold",size=16),
+        legend.position = "none") +
+  labs(x="Richness",y="Density",fill="Sponge species") +
+  scale_colour_manual(guide="none",values=pal.discrete) +
+  scale_fill_manual(values = pal.discrete)
+
+p2 <- meta %>% 
+  ggdensity(x="Shannon", add = "median",
+            color = "Sponge_Species",fill="Sponge_Species",
+            rug = TRUE, facet.by = "Acidified") +
+  theme(strip.background = element_blank(),
+        strip.text = element_text(face="bold",size=14),
+        legend.text = element_text(face = "italic"),
+        axis.title = element_text(face="bold",size=16),
+        legend.position = "bottom") +
+  labs(x="Shannon diversity",y="Density",fill="Sponge species") +
+  scale_colour_manual(guide="none",values=pal.discrete) +
+  scale_fill_manual(values = pal.discrete)
+p1/p2
+ggsave("./output/figs/Alpha-Diversity_Distributions_by_Sponge_Species.png",dpi=300)  
+
+
+# pH vs alpha diversity
+comparisons <- list(c("6","7"),c("7","8"),c("6","8"))
+p1 <- ggboxplot(meta, x = "pH", y = "Richness",
+               color = "pH", palette =pal.discrete,
+               add = "jitter") +
+  stat_compare_means(comparisons = comparisons) +
+  theme(axis.title = element_text(face="bold",size=14),
+        axis.text = element_text(face="bold")) +
+  labs(x="")
+  
+
+p2 <- ggboxplot(meta, x = "pH", y = "Shannon",
+               color = "pH", palette =pal.discrete,
+               add = "jitter") + 
+  stat_compare_means(comparisons = comparisons) +
+  labs(y="Shannon diversity") +
+  theme(axis.title = element_text(face="bold",size=14),
+        axis.text = element_text(face="bold"),
+        legend.position = "none")
+
+p1/p2
+ggsave("./output/figs/Alpha-Diversity_Boxplots_over_pH.png",dpi=300,height = 8,width = 6)
 
 
 
+
+
+######################### CORE MYCOBIOME ##################################
+# find core mycobiome members of each sponge species
+
+core_full <- ps_ra %>% core_members(prevalence = .25,detection = .01)
+core_Crambe <- ps_ra %>% subset_samples(Sponge_Species == "Crambe") %>% core_members(prevalence = .25,detection = .01)
+core_Chondrosia <- ps_ra %>% subset_samples(Sponge_Species == "Chondrosia") %>% core_members(prevalence = .25,detection = .01)
+core_Petrosia <- ps_ra %>% subset_samples(Sponge_Species == "Petrosia") %>% core_members(prevalence = .25,detection = .01)
+core_Chondrilla <- ps_ra %>% subset_samples(Sponge_Species == "Chondrilla") %>% core_members(prevalence = .25,detection = .01)
+
+# save list in file
+sink("./output/Core_Taxa_Names.txt")
+print("Prevalence = 0.25; detection threshold = 0.01")
+print("core_full")
+core_full
+print("core_Crambe")
+core_Crambe
+print("core_Chondrosia")
+core_Chondrosia
+print("core_Petrosia")
+core_Petrosia
+print("core_Chondrilla")
+core_Chondrilla
+sink(NULL)
+
+# subset to those core taxa
+ps_coretaxa <- ps %>% subset_taxa(taxa_names(ps) %in% unique(c(core_Chondrilla,core_Chondrosia,core_Crambe,core_Petrosia)))
+ps_ra_coretaxa <- transform_sample_counts(ps_coretaxa,function(x){x/sum(x)})
+
+# plot just core taxa
+plot_composition(ps_ra_coretaxa,group_by = "Sponge_Species",sample.sort = "pH") + scale_fill_manual(values = pal.discrete) + 
+  labs(fill="Core taxa") +
+  theme(legend.position = "right",
+        strip.background = element_blank(),
+        strip.text = element_text(face="bold.italic",size=12),
+        axis.title = element_text(face="bold",size=14),
+        legend.title = element_text(face="bold",size = 12)) + labs(y="Relative abundance")
+ggsave("./output/Relative_Abundance_of_Only_Core_Taxa_by_SpongeSpecies.png",dpi=300,height = 6,width = 14)  
+ps_ra_coretaxa@sam_data
+
+
+
+
+# find core taxa for acidification status
+core_Acidified <- ps_ra %>% subset_samples(Acidified == "Acidified") %>% core_members(prevalence = .25,detection = .01)
+core_Control <- ps_ra %>% subset_samples(Acidified == "Control") %>% core_members(prevalence = .25,detection = .01)
+
+# subset to those core taxa
+ps_coretaxa <- ps %>% subset_taxa(taxa_names(ps) %in% unique(c(core_Acidified,core_Control)))
+ps_ra_coretaxa <- transform_sample_counts(ps_coretaxa,function(x){x/sum(x)})
+
+# plot just core taxa
+plot_composition(ps_ra_coretaxa,group_by = "Acidified",sample.sort = "pH") + scale_fill_manual(values = pal.discrete) + 
+  labs(fill="Core taxa") +
+  theme(legend.position = "right",
+        strip.background = element_blank(),
+        strip.text = element_text(face="bold.italic",size=12),
+        axis.title = element_text(face="bold",size=14),
+        legend.title = element_text(face="bold",size = 12)) + labs(y="Relative abundance")
+ggsave("./output/Relative_Abundance_of_Only_Core_Taxa_by_Acidification.png",dpi=300,height = 6,width = 10)  
+
+
+# make names pretty: just "genus spp."
+coretaxa <- taxa_names(ps_ra)[grep(pattern = "ASV_19:|ASV_23:|ASV_14:|ASV_26:|ASV_6:|ASV_18:|ASV_15:|ASV_4:", x = taxa_names(ps_ra))]
+ps_temp <- subset_taxa(ps_ra,taxa_names(ps_ra) %in% coretaxa)
+
+genus <- ps_temp %>%
+  taxa_names() %>% str_remove(pattern = "_fam_Incertae_sedis") %>%
+  str_split("_") %>% map_chr(6)
+species <- ps_temp %>%
+  taxa_names() %>%
+  str_split("_") %>% map_chr(c(7))
+species[6] <- "platani"
+
+ps_ra_genus_spp <- ps_temp
+taxa_names(ps_ra_genus_spp) <- paste(genus,species)
+
+# Plot core heatmap
+plot_core(ps_ra_genus_spp, plot.type = "heatmap",min.prevalence = .25,horizontal = TRUE) +
+  theme(axis.text.x = element_text(face = "bold.italic",angle=60,hjust=1),
+        axis.title = element_text(face="bold",size=14),
+        legend.title = element_text(face="bold",size=12)) +
+  labs(title="") + scale_fill_viridis_c()
+ggsave("./output/figs/Core_Taxa_Heatmap.png",dpi=300)

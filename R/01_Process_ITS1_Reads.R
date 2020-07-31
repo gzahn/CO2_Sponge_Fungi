@@ -29,6 +29,10 @@ library(decontam); packageVersion("decontam")
 library(phyloseq); packageVersion("phyloseq")
 library(purrr); packageVersion("purrr")
 
+source("./R/palettes.R")
+source("./R/plot_bar2.R")
+
+
 #################################################################################
 #                               Main workflow                                   #
 # Filter and trim, denoise, sample inferrence, chimera and contaminant removal, # 
@@ -134,6 +138,12 @@ write.csv(as.data.frame(seqtab.nochim), file = "./output/SeqTable_no-chimera.csv
 saveRDS(seqtab.nochim, file = "./output/dada2_seqtable.RDS")
 saveRDS(taxa, file = "./output/RDP_Taxonomy_from_dada2.RDS")
 
+# re-load point
+# seqtab.nochim <- readRDS("./output/dada2_seqtable.RDS")
+# taxa <- readRDS("./output/RDP_Taxonomy_from_dada2.RDS")
+# meta <- read_delim("./data/Metadata.csv",delim = ",")
+# row.names(meta) <- as.character(meta$SampleID)
+
 # Hand off to Phyloseq ####
 otu <- otu_table(seqtab.nochim,taxa_are_rows = FALSE)
 tax <- tax_table(taxa)
@@ -142,12 +152,43 @@ row.names(met) <- row.names(meta)
 
 ps <- phyloseq(otu,met,tax)
 
+# Find non-fungi
+ps_nonfungi <- subset_taxa(ps, Kingdom != "k__Fungi")
+
+ps %>% transform_sample_counts(function(x){x/sum(x)}) %>%
+  plot_bar2(fill="Kingdom")
+ggsave("./output/figs/Kingdom_Level_Taxonomic_Proportions.png",dpi=300)
+
+ps_nonfungi %>% 
+  subset_taxa(Kingdom %in% c("k__Metazoa","k__Alveolata","k__Viridiplantae","k__Stramenopila")) %>%
+  transform_sample_counts(function(x){x/sum(x)}) %>%
+  plot_bar2(fill="Kingdom")
+ggsave("output/figs/Kingdom_Level_Taxonomic_Proportions_not-including-fungi.png")
+
+ps %>% subset_taxa(Kingdom == "k__Metazoa") %>%
+  transform_sample_counts(function(x){x/sum(x)}) %>%
+  plot_bar2(fill="Phylum")
+ggsave("output/figs/Phylum_Level_Taxonomic_Proportions_of_Metazoans.png")
+
 # REMOVE NON-FUNGI and empty samples/taxa ####
 ps <- subset_taxa(ps, Kingdom == "k__Fungi")
 ps <- subset_taxa(ps, taxa_sums(ps) > 0)
 ps <- subset_samples(ps, sample_sums(ps) > 0)
 
 
+# Make taxa names prettier
+taxa_names(ps) <- 
+  paste("FungalASV",1:length(taxa_names(ps)),":",
+        tax_table(ps)[,2],
+        tax_table(ps)[,3],
+        tax_table(ps)[,4],
+        tax_table(ps)[,5],
+        tax_table(ps)[,6],
+        tax_table(ps)[,7], sep="_") %>%
+  str_remove("k__") %>% str_remove("p__") %>% str_remove("c__") %>% str_remove("o__") %>% str_remove("f__") %>% str_remove("g__") %>% str_remove("s__") %>%
+  str_replace(pattern = "_:_",replacement = ": ")
+
 # Save RDS object for Phyloseq
 saveRDS(ps, file = "./output/clean_phyloseq_object.RDS")
+
 
