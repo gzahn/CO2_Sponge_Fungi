@@ -80,7 +80,7 @@ da_analysis <- differentialTest(formula = ~ Acidified, #abundance
                                 data = ps_family,
                                 fdr_cutoff = 0.05)
 
-
+plot(da_analysis)
 if(length(da_analysis$significant_models) > 0){
   
   
@@ -123,7 +123,7 @@ if(length(da_analysis$significant_models) > 0){
                    pointsize = 3)
 }
 bbdml_plot_1
-ggsave("./output/figs/DA_Plot_Genus-Level_Acidification.png")
+ggsave("./output/figs/DA_Plot_Genus-Level_Acidification.png",height = 6,width = 12,dpi=300)
 
 
 #################### Sponge_Species #######################

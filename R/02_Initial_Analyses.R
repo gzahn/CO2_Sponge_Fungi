@@ -311,6 +311,16 @@ sink(NULL)
 # subset to those core taxa
 ps_coretaxa <- ps %>% subset_taxa(taxa_names(ps) %in% unique(c(core_Chondrilla,core_Chondrosia,core_Crambe,core_Petrosia)))
 ps_ra_coretaxa <- transform_sample_counts(ps_coretaxa,function(x){x/sum(x)})
+ps_ra_coretaxa <- ps_ra_coretaxa %>% subset_samples(sample_sums(ps_ra_coretaxa) > 0)
+
+sample_data(ps_ra_coretaxa)
+otu_table(ps_ra_coretaxa)
+
+core_adonis <- adonis(otu_table(ps_ra_coretaxa) ~ ps_ra_coretaxa@sam_data$Sampling_Site * ps_ra_coretaxa@sam_data$Sponge_Species,na.rm=TRUE)
+sink("./output/permanova_comm-distance_vs_Site_and_Sponge-Species_only-core-taxa.txt")
+core_adonis
+sink(NULL)
+
 
 # plot just core taxa
 plot_composition(ps_ra_coretaxa,group_by = "Sponge_Species",sample.sort = "pH") + scale_fill_manual(values = pal.discrete) + 
@@ -343,6 +353,9 @@ plot_composition(ps_ra_coretaxa,group_by = "Acidified",sample.sort = "pH") + sca
         axis.title = element_text(face="bold",size=14),
         legend.title = element_text(face="bold",size = 12)) + labs(y="Relative abundance")
 ggsave("./output/Relative_Abundance_of_Only_Core_Taxa_by_Acidification.png",dpi=300,height = 6,width = 10)  
+
+
+# Permanova based on just these core taxa!!!
 
 
 # make names pretty: just "genus spp."

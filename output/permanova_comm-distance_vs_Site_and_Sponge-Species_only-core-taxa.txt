@@ -1,0 +1,15 @@
+
+Call:
+adonis(formula = otu_table(ps_ra_coretaxa) ~ ps_ra_coretaxa@sam_data$Sampling_Site *      ps_ra_coretaxa@sam_data$Sponge_Species, na.rm = TRUE) 
+
+Permutation: free
+Number of permutations: 999
+
+Terms added sequentially (first to last)
+
+                                                                              Df SumsOfSqs MeanSqs F.Model      R2 Pr(>F)
+ps_ra_coretaxa@sam_data$Sampling_Site                                          5    1.1455 0.22910 0.79991 0.03683  0.773
+ps_ra_coretaxa@sam_data$Sponge_Species                                         4    0.8168 0.20420 0.71295 0.02626  0.846
+ps_ra_coretaxa@sam_data$Sampling_Site:ps_ra_coretaxa@sam_data$Sponge_Species  15    4.7995 0.31997 1.11714 0.15429  0.214
+Residuals                                                                     85   24.3453 0.28641         0.78263       
+Total                                                                        109   31.1071                 1.00000       
