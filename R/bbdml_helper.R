@@ -106,7 +106,8 @@ else if(length(unique(color)) > length(pal.discrete)){
 
 else{
   for(i in 1:length(bbdml_list)){
-    p <- plot(bbdml_list[[i]], color=color,size=pointsize) + ggtitle(names(bbdml_list)[i]) + scale_color_manual(values = pal.discrete)
+    p <- plot(bbdml_list[[i]], color=color,size=pointsize) + ggtitle(names(bbdml_list)[i]) + scale_color_manual(values = pal.discrete) +
+      theme(plot.title = element_text(face="italic"), axis.title.y = element_text(face="bold"))
     assign(paste0(obj_basename,i),p,envir = .GlobalEnv)
     }
   }

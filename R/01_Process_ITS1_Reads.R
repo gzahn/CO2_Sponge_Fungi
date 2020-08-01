@@ -9,6 +9,7 @@
 #                     decontam v 1.6.0
 #                     phyloseq v 1.30.0
 #                     purrr v 0.3.4
+#                     Biostrings 2.54.0
 # -----------------------------------------------------------------------------#
 
 # EXTRACT ITS1 SEQUENCES ####
@@ -28,6 +29,7 @@ library(dada2); packageVersion("dada2")
 library(decontam); packageVersion("decontam")
 library(phyloseq); packageVersion("phyloseq")
 library(purrr); packageVersion("purrr")
+library(Biostrings); packageVersion("Biostrings")
 
 source("./R/palettes.R")
 source("./R/plot_bar2.R")
@@ -144,11 +146,13 @@ saveRDS(taxa, file = "./output/RDP_Taxonomy_from_dada2.RDS")
 # meta <- read_delim("./data/Metadata.csv",delim = ",")
 # row.names(meta) <- as.character(meta$SampleID)
 
+
 # Hand off to Phyloseq ####
 otu <- otu_table(seqtab.nochim,taxa_are_rows = FALSE)
 tax <- tax_table(taxa)
 met <- sample_data(meta)
 row.names(met) <- row.names(meta)
+
 
 ps <- phyloseq(otu,met,tax)
 
@@ -175,18 +179,29 @@ ps <- subset_taxa(ps, Kingdom == "k__Fungi")
 ps <- subset_taxa(ps, taxa_sums(ps) > 0)
 ps <- subset_samples(ps, sample_sums(ps) > 0)
 
+# Save DNA sequences apart from rownames (from subsetted ps object)
+seqs <- taxa_names(ps)
+seqs <- DNAStringSet(seqs)
+saveRDS(seqs,"./output/ASV_reference_sequences.RDS")
 
-# Make taxa names prettier
-taxa_names(ps) <- 
-  paste("FungalASV",1:length(taxa_names(ps)),":",
-        tax_table(ps)[,2],
-        tax_table(ps)[,3],
-        tax_table(ps)[,4],
-        tax_table(ps)[,5],
-        tax_table(ps)[,6],
-        tax_table(ps)[,7], sep="_") %>%
+
+pretty_names <- paste("FungalASV",1:length(taxa_names(ps)),":",
+      tax_table(ps)[,2],
+      tax_table(ps)[,3],
+      tax_table(ps)[,4],
+      tax_table(ps)[,5],
+      tax_table(ps)[,6],
+      tax_table(ps)[,7], sep="_") %>%
   str_remove("k__") %>% str_remove("p__") %>% str_remove("c__") %>% str_remove("o__") %>% str_remove("f__") %>% str_remove("g__") %>% str_remove("s__") %>%
   str_replace(pattern = "_:_",replacement = ": ")
+
+df <- data.frame(TaxaName=pretty_names,Sequence=taxa_names(ps))
+saveRDS(df,"./output/SequenceNames_and_Taxonomy.RDS")
+
+# Set Seawater as first level of Sponge_Species
+ps@sam_data$Sponge_Species <- factor(ps@sam_data$Sponge_Species, 
+                                     levels = c("Seawater","Chondrilla","Chondrosia","Crambe","Petrosia"))
+
 
 # Save RDS object for Phyloseq
 saveRDS(ps, file = "./output/clean_phyloseq_object.RDS")
