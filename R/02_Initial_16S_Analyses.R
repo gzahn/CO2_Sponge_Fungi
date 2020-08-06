@@ -94,7 +94,7 @@ ps_merged %>%
         strip.background = element_blank(),
         strip.text = element_text(size=12,face="bold.italic")) +
   facet_wrap(~Sponge_Species,scales = "free")
-ggsave("./output/figs/16S_Phylum_Diversity_BarChart_by_Acidification.png",dpi=300)
+ggsave("./output/figs/16S_Phylum_Diversity_BarChart_by_Acidification.png",dpi=300,height=8,width=12)
 
 # Class
 ps_merged %>%
