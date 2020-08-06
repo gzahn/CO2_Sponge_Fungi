@@ -1,0 +1,68 @@
+[1] "Richness"
+
+Call:
+glm(formula = Richness ~ pH + Sponge_Species, data = meta2)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-204.46   -27.27    -5.61    18.39   476.53  
+
+Coefficients:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                -20.88     127.76  -0.163  0.87052    
+pH                          14.00      16.36   0.856  0.39411    
+Sponge_SpeciesChondrosia    62.13      30.07   2.067  0.04147 *  
+Sponge_SpeciesCrambe       326.33      30.93  10.550  < 2e-16 ***
+Sponge_SpeciesPetrosia     108.47      30.48   3.559  0.00058 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 8965.596)
+
+    Null deviance: 2302983  on 100  degrees of freedom
+Residual deviance:  860697  on  96  degrees of freedom
+AIC: 1212.7
+
+Number of Fisher Scoring iterations: 2
+
+                             Df  Sum Sq Mean Sq F value   Pr(>F)    
+Sampling_Site                 5  373710   74742   8.190 2.61e-06 ***
+Sponge_Species                3 1134820  378273  41.448  < 2e-16 ***
+Sampling_Site:Sponge_Species 10   46086    4609   0.505    0.882    
+Residuals                    82  748368    9126                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "Shannon"
+
+Call:
+glm(formula = Shannon ~ pH + Sponge_Species, data = meta2)
+
+Deviance Residuals: 
+     Min        1Q    Median        3Q       Max  
+-1.37477  -0.09984   0.00121   0.10795   0.86146  
+
+Coefficients:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               3.06711    0.42551   7.208 1.29e-10 ***
+pH                       -0.02065    0.05448  -0.379    0.705    
+Sponge_SpeciesChondrosia  0.95623    0.10014   9.549 1.38e-15 ***
+Sponge_SpeciesCrambe      0.97264    0.10302   9.442 2.36e-15 ***
+Sponge_SpeciesPetrosia    0.73638    0.10151   7.255 1.04e-10 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.09944996)
+
+    Null deviance: 20.7930  on 100  degrees of freedom
+Residual deviance:  9.5472  on  96  degrees of freedom
+AIC: 60.379
+
+Number of Fisher Scoring iterations: 2
+
+                             Df Sum Sq Mean Sq F value   Pr(>F)    
+Sampling_Site                 5  3.268   0.654   8.920 8.51e-07 ***
+Sponge_Species                3  9.717   3.239  44.211  < 2e-16 ***
+Sampling_Site:Sponge_Species 10  1.801   0.180   2.458   0.0127 *  
+Residuals                    82  6.008   0.073                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

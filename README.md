@@ -1,8 +1,8 @@
-# CO2_Sponge_Fungi
+# CO2_Sponge_Microbiomes
 
 Collaboration with Valerio Mazzella and Laura Núnez Pons 
 
-Fungal ITS1 sequences were obtained from 4 marine sponge species: 
+Fungal ITS1 and bacterial 16S seqeuences were obtained from 4 marine sponge species: 
   - *Petrosia ficiformis*
   - *Chondrosia reniformis* 
   - *Chondrilla nucula* 

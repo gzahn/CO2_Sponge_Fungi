@@ -1,0 +1,1046 @@
+$Chloroflexi_Caldilineae_Caldilineales_Caldilineaceae_Litorilinea
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -6.9179     0.9034  -7.657 8.23e-12 ***
+Sponge_SpeciesChondrilla  -1.2269     0.9934  -1.235   0.2195    
+Sponge_SpeciesChondrosia   3.9964     0.9219   4.335 3.26e-05 ***
+Sponge_SpeciesCrambe       1.8800     0.9427   1.994   0.0486 *  
+Sponge_SpeciesPetrosia     7.3545     0.9052   8.125 7.59e-13 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                -5.827      1.410  -4.133 7.04e-05 ***
+Sponge_SpeciesChondrilla   -1.930      1.702  -1.134   0.2594    
+Sponge_SpeciesChondrosia    2.855      1.441   1.981   0.0501 .  
+Sponge_SpeciesCrambe        1.422      1.463   0.972   0.3333    
+Sponge_SpeciesPetrosia      1.982      1.435   1.382   0.1699    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -593.48
+
+$Bacteroidetes_Flavobacteriia_Flavobacteriales_Flavobacteriaceae_Pseudofulvibacter
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -1.1330     0.0922 -12.288  < 2e-16 ***
+Sponge_SpeciesChondrilla  -5.2853     0.4751 -11.124  < 2e-16 ***
+Sponge_SpeciesChondrosia  -6.1294     0.3752 -16.338  < 2e-16 ***
+Sponge_SpeciesCrambe      -1.2001     0.1960  -6.124 1.47e-08 ***
+Sponge_SpeciesPetrosia    -5.8770     0.2643 -22.239  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -3.5969     0.3409 -10.552  < 2e-16 ***
+Sponge_SpeciesChondrilla  -1.6950     0.7231  -2.344 0.020887 *  
+Sponge_SpeciesChondrosia  -2.4243     0.6258  -3.874 0.000183 ***
+Sponge_SpeciesCrambe       0.9606     0.4435   2.166 0.032504 *  
+Sponge_SpeciesPetrosia    -2.9347     0.5082  -5.775 7.37e-08 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -495.11
+
+$Bacteroidetes_Sphingobacteriia_Sphingobacteriales_Rhodothermaceae_Salisaeta
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)              -11.8321     0.7072 -16.731  < 2e-16 ***
+Sponge_SpeciesChondrilla   9.1265     0.7149  12.766  < 2e-16 ***
+Sponge_SpeciesChondrosia   6.2856     0.7220   8.706 3.77e-14 ***
+Sponge_SpeciesCrambe       4.6619     1.1352   4.107 7.78e-05 ***
+Sponge_SpeciesPetrosia     9.6203     0.7137  13.480  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)
+(Intercept)                -18.02      61.13  -0.295    0.769
+Sponge_SpeciesChondrilla    13.35      61.13   0.218    0.828
+Sponge_SpeciesChondrosia    11.86      61.13   0.194    0.846
+Sponge_SpeciesCrambe        13.90      61.14   0.227    0.821
+Sponge_SpeciesPetrosia      14.26      61.13   0.233    0.816
+
+
+Log-likelihood: -439.88
+
+$Actinobacteria_Actinobacteria_Acidimicrobiales_Iamiaceae_Aquihabitans
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -6.9464     0.4125 -16.841  < 2e-16 ***
+Sponge_SpeciesChondrilla   5.1788     0.4254  12.175  < 2e-16 ***
+Sponge_SpeciesChondrosia   4.0454     0.4207   9.616 3.21e-16 ***
+Sponge_SpeciesCrambe       1.0998     0.4810   2.286   0.0242 *  
+Sponge_SpeciesPetrosia     4.6799     0.4265  10.972  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -5.9318     0.5665 -10.471  < 2e-16 ***
+Sponge_SpeciesChondrilla   2.0323     0.6775   3.000  0.00335 ** 
+Sponge_SpeciesChondrosia   1.3122     0.6279   2.090  0.03897 *  
+Sponge_SpeciesCrambe       0.4496     0.7043   0.638  0.52456    
+Sponge_SpeciesPetrosia     2.3847     0.6278   3.799  0.00024 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -614.44
+
+$Nitrospirae_Nitrospira_Nitrospirales_Nitrospiraceae_Nitrospira
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -10.652      1.597  -6.670 1.10e-09 ***
+Sponge_SpeciesChondrilla    9.262      1.604   5.774 7.40e-08 ***
+Sponge_SpeciesChondrosia    8.766      1.599   5.482 2.74e-07 ***
+Sponge_SpeciesCrambe        5.928      1.636   3.624 0.000442 ***
+Sponge_SpeciesPetrosia      7.909      1.600   4.942 2.81e-06 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                -6.971      1.992  -3.499 0.000677 ***
+Sponge_SpeciesChondrilla    4.123      2.025   2.036 0.044173 *  
+Sponge_SpeciesChondrosia    3.127      2.009   1.556 0.122544    
+Sponge_SpeciesCrambe        3.472      2.044   1.699 0.092251 .  
+Sponge_SpeciesPetrosia      2.872      2.011   1.428 0.156055    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -606.06
+
+$Actinobacteria_Actinobacteria_Acidimicrobiales_Acidimicrobineae_incertae_sedis_Aciditerrimonas
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -8.9458     0.7866 -11.373  < 2e-16 ***
+Sponge_SpeciesChondrilla  -0.9765     1.4636  -0.667    0.506    
+Sponge_SpeciesChondrosia   7.2682     0.7959   9.132 4.07e-15 ***
+Sponge_SpeciesCrambe       1.9363     1.3796   1.404    0.163    
+Sponge_SpeciesPetrosia     6.3973     0.7903   8.094 8.87e-13 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -6.8698     1.0363  -6.629 1.34e-09 ***
+Sponge_SpeciesChondrilla  -0.1484     2.0680  -0.072 0.942930    
+Sponge_SpeciesChondrosia   4.0934     1.0682   3.832 0.000213 ***
+Sponge_SpeciesCrambe       3.4258     1.6772   2.043 0.043502 *  
+Sponge_SpeciesPetrosia     2.3791     1.0710   2.221 0.028396 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -460.19
+
+$Proteobacteria_Alphaproteobacteria_Rhodobacterales_Rhodobacteraceae_Roseovarius
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -1.8853     0.1217  -15.49  < 2e-16 ***
+Sponge_SpeciesChondrilla  -7.5414     0.5146  -14.65  < 2e-16 ***
+Sponge_SpeciesChondrosia  -6.9315     0.3876  -17.88  < 2e-16 ***
+Sponge_SpeciesCrambe      -1.9843     0.2480   -8.00 1.44e-12 ***
+Sponge_SpeciesPetrosia    -5.6316     0.3071  -18.34  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -3.5136     0.3427 -10.251  < 2e-16 ***
+Sponge_SpeciesChondrilla -14.5081   150.8471  -0.096    0.924    
+Sponge_SpeciesChondrosia  -4.5536     0.8659  -5.259 7.29e-07 ***
+Sponge_SpeciesCrambe      -0.1276     0.4756  -0.268    0.789    
+Sponge_SpeciesPetrosia    -3.2764     0.5381  -6.089 1.74e-08 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -381.59
+
+$Proteobacteria_Alphaproteobacteria_Rhodobacterales_Rhodobacteraceae_Loktanella
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -2.8158     0.1177 -23.917  < 2e-16 ***
+Sponge_SpeciesChondrilla  -5.4635     0.8165  -6.692 9.89e-10 ***
+Sponge_SpeciesChondrosia  -5.5051     0.4263 -12.915  < 2e-16 ***
+Sponge_SpeciesCrambe      -1.7869     0.1792  -9.974  < 2e-16 ***
+Sponge_SpeciesPetrosia    -6.0164     0.3861 -15.583  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -4.3712     0.3481 -12.556  < 2e-16 ***
+Sponge_SpeciesChondrilla  -1.7335     1.1613  -1.493 0.138376    
+Sponge_SpeciesChondrosia  -2.6179     0.7170  -3.651 0.000403 ***
+Sponge_SpeciesCrambe      -1.1016     0.4836  -2.278 0.024686 *  
+Sponge_SpeciesPetrosia    -3.2956     0.6580  -5.008 2.13e-06 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -322.73
+
+$Proteobacteria_Deltaproteobacteria_Bdellovibrionales_Bdellovibrionaceae_Bdellovibrio
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -8.3425     0.4343 -19.208   <2e-16 ***
+Sponge_SpeciesChondrilla  -2.4705     1.0903  -2.266   0.0254 *  
+Sponge_SpeciesChondrosia   6.8733     0.4499  15.279   <2e-16 ***
+Sponge_SpeciesCrambe       1.6135     0.9374   1.721   0.0880 .  
+Sponge_SpeciesPetrosia     1.6023     0.7835   2.045   0.0433 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -7.3131     0.6504 -11.245  < 2e-16 ***
+Sponge_SpeciesChondrilla -10.7087   143.2859  -0.075  0.94056    
+Sponge_SpeciesChondrosia   4.6055     0.6995   6.584 1.66e-09 ***
+Sponge_SpeciesCrambe       3.4943     1.1874   2.943  0.00398 ** 
+Sponge_SpeciesPetrosia     3.0581     0.9866   3.100  0.00247 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -342.67
+
+$Proteobacteria_Gammaproteobacteria_Oceanospirillales_Hahellaceae_Endozoicomonas
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -8.3834     0.5989 -13.998  < 2e-16 ***
+Sponge_SpeciesChondrilla   7.1800     0.6579  10.913  < 2e-16 ***
+Sponge_SpeciesChondrosia   5.9561     0.6257   9.519 5.36e-16 ***
+Sponge_SpeciesCrambe       6.8176     0.6308  10.807  < 2e-16 ***
+Sponge_SpeciesPetrosia     1.0888     0.7333   1.485     0.14    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -6.8092     0.8274  -8.230 4.42e-13 ***
+Sponge_SpeciesChondrilla   5.4448     0.8997   6.052 2.07e-08 ***
+Sponge_SpeciesChondrosia   4.2737     0.8723   4.899 3.36e-06 ***
+Sponge_SpeciesCrambe       5.1474     0.8702   5.915 3.87e-08 ***
+Sponge_SpeciesPetrosia     1.0777     0.9841   1.095    0.276    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -602.82
+
+$Spirochaetes_Spirochaetia_Spirochaetales_Spirochaetaceae_Salinispira
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -12.525      1.002 -12.497  < 2e-16 ***
+Sponge_SpeciesChondrilla    6.927      1.206   5.743 8.51e-08 ***
+Sponge_SpeciesChondrosia   10.631      1.007  10.555  < 2e-16 ***
+Sponge_SpeciesCrambe        5.655      2.403   2.353   0.0204 *  
+Sponge_SpeciesPetrosia      7.623      1.011   7.538 1.50e-11 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)
+(Intercept)                -18.02     343.35  -0.052    0.958
+Sponge_SpeciesChondrilla    14.34     343.35   0.042    0.967
+Sponge_SpeciesChondrosia    14.66     343.35   0.043    0.966
+Sponge_SpeciesCrambe        16.19     343.36   0.047    0.962
+Sponge_SpeciesPetrosia      12.39     343.35   0.036    0.971
+
+
+Log-likelihood: -406.46
+
+$Proteobacteria_Gammaproteobacteria_Oceanospirillales_Oceanospirillales_incertae_sedis_Pseudohongiella
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -4.3627     0.1353 -32.239  < 2e-16 ***
+Sponge_SpeciesChondrilla   2.8716     0.2094  13.713  < 2e-16 ***
+Sponge_SpeciesChondrosia  -4.2093     0.4405  -9.556 4.41e-16 ***
+Sponge_SpeciesCrambe      -1.2395     0.2966  -4.179 5.92e-05 ***
+Sponge_SpeciesPetrosia    -1.1454     0.2744  -4.174 6.04e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -5.5831     0.3655 -15.274  < 2e-16 ***
+Sponge_SpeciesChondrilla   2.7822     0.5151   5.402 3.91e-07 ***
+Sponge_SpeciesChondrosia  -1.7271     0.7930  -2.178   0.0316 *  
+Sponge_SpeciesCrambe       0.5265     0.5538   0.951   0.3439    
+Sponge_SpeciesPetrosia     0.5125     0.5026   1.020   0.3101    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -450.05
+
+$Bacteroidetes_Flavobacteriia_Flavobacteriales_Flavobacteriaceae_Tenacibaculum
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)              -3.07477    0.07045 -43.643  < 2e-16 ***
+Sponge_SpeciesChondrilla -5.42256    0.79695  -6.804 5.72e-10 ***
+Sponge_SpeciesChondrosia -6.07039    0.55787 -10.881  < 2e-16 ***
+Sponge_SpeciesCrambe     -0.88152    0.14886  -5.922 3.76e-08 ***
+Sponge_SpeciesPetrosia   -3.86248    0.35608 -10.847  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)              -5.67665    0.35630 -15.932   <2e-16 ***
+Sponge_SpeciesChondrilla -0.71901    1.15778  -0.621   0.5359    
+Sponge_SpeciesChondrosia -1.88326    1.11238  -1.693   0.0933 .  
+Sponge_SpeciesCrambe      0.84052    0.46967   1.790   0.0763 .  
+Sponge_SpeciesPetrosia   -0.06603    0.57016  -0.116   0.9080    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -352.52
+
+$Bacteroidetes_Flavobacteriia_Flavobacteriales_Cryomorphaceae_Phaeocystidibacter
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)              -2.80821    0.09755 -28.787   <2e-16 ***
+Sponge_SpeciesChondrilla -6.36985    0.65622  -9.707   <2e-16 ***
+Sponge_SpeciesChondrosia -6.96258    0.45407 -15.334   <2e-16 ***
+Sponge_SpeciesCrambe     -2.50869    0.21952 -11.428   <2e-16 ***
+Sponge_SpeciesPetrosia   -5.65768    0.51850 -10.912   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -4.7514     0.3486 -13.632  < 2e-16 ***
+Sponge_SpeciesChondrilla  -3.2744     1.3907  -2.355 0.020338 *  
+Sponge_SpeciesChondrosia  -4.5042     1.2625  -3.568 0.000537 ***
+Sponge_SpeciesCrambe      -0.6716     0.5206  -1.290 0.199782    
+Sponge_SpeciesPetrosia    -1.8263     0.7437  -2.456 0.015647 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -279.05
+
+$Proteobacteria_Alphaproteobacteria_Kiloniellales_Kiloniellaceae_Kiloniella
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -3.1798     0.0654 -48.622  < 2e-16 ***
+Sponge_SpeciesChondrilla  -6.9582     1.1397  -6.105 1.61e-08 ***
+Sponge_SpeciesChondrosia  -6.0818     0.5812 -10.465  < 2e-16 ***
+Sponge_SpeciesCrambe      -1.5703     0.1511 -10.394  < 2e-16 ***
+Sponge_SpeciesPetrosia    -7.6994     0.3892 -19.784  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -5.9319     0.3917 -15.146   <2e-16 ***
+Sponge_SpeciesChondrilla  -1.6313     1.8231  -0.895   0.3729    
+Sponge_SpeciesChondrosia  -1.4360     1.0118  -1.419   0.1587    
+Sponge_SpeciesCrambe       0.3028     0.5209   0.581   0.5622    
+Sponge_SpeciesPetrosia    -5.6537     2.6537  -2.131   0.0354 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -248.68
+
+$Bacteroidetes_Sphingobacteriia_Sphingobacteriales_Chitinophagaceae_Balneola
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -3.2309     0.3102 -10.417  < 2e-16 ***
+Sponge_SpeciesChondrilla  -7.0777     1.1428  -6.193 1.07e-08 ***
+Sponge_SpeciesChondrosia  -6.9492     0.5764 -12.056  < 2e-16 ***
+Sponge_SpeciesCrambe      -2.3209     0.5193  -4.469 1.93e-05 ***
+Sponge_SpeciesPetrosia    -6.5359     0.6668  -9.803  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -2.7371     0.4075  -6.718 8.71e-10 ***
+Sponge_SpeciesChondrilla  -5.2986     2.0051  -2.643  0.00944 ** 
+Sponge_SpeciesChondrosia  -7.6353     2.6696  -2.860  0.00508 ** 
+Sponge_SpeciesCrambe      -1.2663     0.6786  -1.866  0.06472 .  
+Sponge_SpeciesPetrosia    -4.8722     0.8822  -5.522 2.29e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -231.98
+
+$Proteobacteria_Alphaproteobacteria_Rhodobacterales_Rhodobacteraceae_Nereida
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -4.3186     0.2343 -18.430  < 2e-16 ***
+Sponge_SpeciesChondrilla  -5.0715     0.8264  -6.137 1.39e-08 ***
+Sponge_SpeciesChondrosia  -5.4409     0.7942  -6.850 4.57e-10 ***
+Sponge_SpeciesCrambe      -2.6707     0.3905  -6.839 4.83e-10 ***
+Sponge_SpeciesPetrosia    -6.4735     0.7877  -8.218 4.70e-13 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -4.4059     0.3835 -11.489  < 2e-16 ***
+Sponge_SpeciesChondrilla  -3.1791     1.4283  -2.226  0.02809 *  
+Sponge_SpeciesChondrosia  -2.8606     1.2217  -2.342  0.02102 *  
+Sponge_SpeciesCrambe      -1.9784     0.6933  -2.853  0.00518 ** 
+Sponge_SpeciesPetrosia    -3.8754     1.1693  -3.314  0.00125 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -189.07
+
+$Bacteroidetes_Sphingobacteriia_Sphingobacteriales_Saprospiraceae_Portibacter
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -3.5330     0.1135 -31.119  < 2e-16 ***
+Sponge_SpeciesChondrilla  -5.1070     0.5270  -9.690  < 2e-16 ***
+Sponge_SpeciesChondrosia  -5.2519     0.3407 -15.417  < 2e-16 ***
+Sponge_SpeciesCrambe      -1.3776     0.2014  -6.839 4.83e-10 ***
+Sponge_SpeciesPetrosia    -7.7497     0.6287 -12.327  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -5.1254     0.3568 -14.363  < 2e-16 ***
+Sponge_SpeciesChondrilla  -2.6765     1.1277  -2.373 0.019372 *  
+Sponge_SpeciesChondrosia  -3.3420     0.8799  -3.798 0.000240 ***
+Sponge_SpeciesCrambe      -0.1963     0.4974  -0.395 0.693907    
+Sponge_SpeciesPetrosia    -4.4485     1.1530  -3.858 0.000194 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -263.94
+
+$Proteobacteria_Alphaproteobacteria_Rhodobacterales_Rhodobacteraceae_Planktomarina
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -4.3439     0.1128 -38.521  < 2e-16 ***
+Sponge_SpeciesChondrilla  -4.9127     0.8417  -5.837 5.56e-08 ***
+Sponge_SpeciesChondrosia  -5.1114     0.8301  -6.157 1.26e-08 ***
+Sponge_SpeciesCrambe      -2.4513     0.3487  -7.031 1.89e-10 ***
+Sponge_SpeciesPetrosia    -5.0499     0.4951 -10.200  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)              -5.94469    0.36791 -16.158   <2e-16 ***
+Sponge_SpeciesChondrilla -1.27765    1.37993  -0.926   0.3566    
+Sponge_SpeciesChondrosia -1.18415    1.43429  -0.826   0.4108    
+Sponge_SpeciesCrambe      0.01351    0.64040   0.021   0.9832    
+Sponge_SpeciesPetrosia   -1.74900    0.78444  -2.230   0.0278 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -205.83
+
+$Proteobacteria_Alphaproteobacteria_Rhodobacterales_Rhodobacteraceae_Litoreibacter
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -4.9308     0.2613 -18.870  < 2e-16 ***
+Sponge_SpeciesChondrilla  -4.2629     0.9366  -4.552 1.39e-05 ***
+Sponge_SpeciesChondrosia  -5.9628     1.0696  -5.575 1.82e-07 ***
+Sponge_SpeciesCrambe      -1.2767     0.3751  -3.404  0.00093 ***
+Sponge_SpeciesPetrosia    -4.8902     0.5981  -8.176 5.83e-13 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -4.7952     0.4000 -11.987  < 2e-16 ***
+Sponge_SpeciesChondrilla  -2.2048     1.4680  -1.502 0.135998    
+Sponge_SpeciesChondrosia  -4.6253     4.7874  -0.966 0.336110    
+Sponge_SpeciesCrambe      -0.9587     0.6179  -1.552 0.123663    
+Sponge_SpeciesPetrosia    -3.1257     0.8838  -3.537 0.000597 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -203.45
+
+$Proteobacteria_Alphaproteobacteria_Rhodobacterales_Rhodobacteraceae_Amylibacter
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -4.3878     0.2673 -16.416  < 2e-16 ***
+Sponge_SpeciesChondrilla  -6.4252     1.0351  -6.207 9.98e-09 ***
+Sponge_SpeciesChondrosia  -5.4820     0.5794  -9.462 7.24e-16 ***
+Sponge_SpeciesCrambe      -1.6639     0.3849  -4.323 3.42e-05 ***
+Sponge_SpeciesPetrosia    -4.5164     0.6827  -6.615 1.43e-09 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -4.2104     0.4001 -10.522  < 2e-16 ***
+Sponge_SpeciesChondrilla -13.8113   188.5766  -0.073  0.94175    
+Sponge_SpeciesChondrosia  -4.9614     1.7562  -2.825  0.00562 ** 
+Sponge_SpeciesCrambe      -1.3042     0.5969  -2.185  0.03104 *  
+Sponge_SpeciesPetrosia    -2.3633     0.8833  -2.675  0.00861 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -224.17
+
+$Firmicutes_Clostridia_Clostridiales_Peptostreptococcaceae_Romboutsia
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -5.9497     0.1502 -39.609  < 2e-16 ***
+Sponge_SpeciesChondrilla  -4.8633     1.0113  -4.809 4.89e-06 ***
+Sponge_SpeciesChondrosia  -4.4660     0.6127  -7.290 5.22e-11 ***
+Sponge_SpeciesCrambe       2.5439     0.2310  11.013  < 2e-16 ***
+Sponge_SpeciesPetrosia    -2.6923     0.4160  -6.471 2.86e-09 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -7.0440     0.4174 -16.878  < 2e-16 ***
+Sponge_SpeciesChondrilla -10.9766   245.5196  -0.045    0.964    
+Sponge_SpeciesChondrosia  -2.5322     2.0825  -1.216    0.227    
+Sponge_SpeciesCrambe       3.4117     0.5144   6.632 1.32e-09 ***
+Sponge_SpeciesPetrosia    -0.3010     0.7030  -0.428    0.669    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -276.87
+
+$Proteobacteria_Epsilonproteobacteria_Campylobacterales_Campylobacteraceae_Arcobacter
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -4.5977     0.1933 -23.782  < 2e-16 ***
+Sponge_SpeciesChondrilla  -6.2153     1.0185  -6.102 1.63e-08 ***
+Sponge_SpeciesChondrosia  -5.5355     1.5903  -3.481  0.00072 ***
+Sponge_SpeciesCrambe       1.2085     0.3947   3.062  0.00277 ** 
+Sponge_SpeciesPetrosia    -6.7322     2.0126  -3.345  0.00113 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -5.0776     0.3744 -13.562  < 2e-16 ***
+Sponge_SpeciesChondrilla -12.9439   141.2641  -0.092    0.927    
+Sponge_SpeciesChondrosia  -0.8074     2.0149  -0.401    0.689    
+Sponge_SpeciesCrambe       2.9340     0.5454   5.379 4.31e-07 ***
+Sponge_SpeciesPetrosia    -2.0198     2.7609  -0.732    0.466    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -231.03
+
+$Bacteroidetes_Flavobacteriia_Flavobacteriales_Cryomorphaceae_Owenweeksia
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -4.4579     0.1025 -43.502  < 2e-16 ***
+Sponge_SpeciesChondrilla  -6.3552     1.0053  -6.322 5.81e-09 ***
+Sponge_SpeciesChondrosia  -4.2765     1.2945  -3.304  0.00129 ** 
+Sponge_SpeciesCrambe      -2.9661     0.3485  -8.511 1.04e-13 ***
+Sponge_SpeciesPetrosia    -5.2674     0.8264  -6.374 4.54e-09 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -6.2887     0.3806 -16.522   <2e-16 ***
+Sponge_SpeciesChondrilla -11.7328   146.2144  -0.080    0.936    
+Sponge_SpeciesChondrosia   1.4452     1.5766   0.917    0.361    
+Sponge_SpeciesCrambe      -0.4198     0.7210  -0.582    0.562    
+Sponge_SpeciesPetrosia    -0.5729     1.0939  -0.524    0.602    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -167.33
+
+$Proteobacteria_Alphaproteobacteria_Rhodospirillales_Rhodospirillaceae_Nisaea
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -3.2068     0.1596 -20.095  < 2e-16 ***
+Sponge_SpeciesChondrilla  -7.0507     1.1489  -6.137 1.39e-08 ***
+Sponge_SpeciesChondrosia  -6.3316     0.4999 -12.665  < 2e-16 ***
+Sponge_SpeciesCrambe      -2.9141     0.2803 -10.398  < 2e-16 ***
+Sponge_SpeciesPetrosia    -5.3904     0.3461 -15.574  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -4.1125     0.3552 -11.579  < 2e-16 ***
+Sponge_SpeciesChondrilla  -3.7252     2.0067  -1.856  0.06610 .  
+Sponge_SpeciesChondrosia  -4.2143     0.9928  -4.245 4.61e-05 ***
+Sponge_SpeciesCrambe      -1.8554     0.5516  -3.363  0.00106 ** 
+Sponge_SpeciesPetrosia    -3.6878     0.6033  -6.113 1.55e-08 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -264.85
+
+$Proteobacteria_Betaproteobacteria_Methylophilales_Methylophilaceae_Methylotenera
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -4.4937     0.1308 -34.360  < 2e-16 ***
+Sponge_SpeciesChondrilla  -6.3193     1.0085  -6.266 7.57e-09 ***
+Sponge_SpeciesChondrosia  -5.1421     0.5861  -8.774 2.65e-14 ***
+Sponge_SpeciesCrambe      -2.1523     0.2761  -7.794 4.11e-12 ***
+Sponge_SpeciesPetrosia    -5.9278     0.6657  -8.905 1.34e-14 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -5.8010     0.3700 -15.680   <2e-16 ***
+Sponge_SpeciesChondrilla -12.2207   176.8193  -0.069   0.9450    
+Sponge_SpeciesChondrosia  -2.0348     1.0347  -1.967   0.0518 .  
+Sponge_SpeciesCrambe      -0.6970     0.6285  -1.109   0.2699    
+Sponge_SpeciesPetrosia    -2.3696     1.0249  -2.312   0.0227 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -189.97
+
+$Proteobacteria_Alphaproteobacteria_Rhizobiales_Hyphomicrobiaceae_Filomicrobium
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)              -9.07123    0.50524 -17.954   <2e-16 ***
+Sponge_SpeciesChondrilla  0.07133    0.81158   0.088   0.9301    
+Sponge_SpeciesChondrosia -1.60701    0.76721  -2.095   0.0385 *  
+Sponge_SpeciesCrambe      5.32187    0.52906  10.059   <2e-16 ***
+Sponge_SpeciesPetrosia   -3.19735    1.34098  -2.384   0.0188 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -7.9543     0.7483 -10.630  < 2e-16 ***
+Sponge_SpeciesChondrilla   0.2531     1.4050   0.180    0.857    
+Sponge_SpeciesChondrosia -10.0675    77.0304  -0.131    0.896    
+Sponge_SpeciesCrambe       3.7357     0.8082   4.622 1.05e-05 ***
+Sponge_SpeciesPetrosia    -0.9993     2.0968  -0.477    0.635    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -180.23
+
+$Firmicutes_Clostridia_Clostridiales_Peptostreptococcaceae_Clostridium_XI
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -6.5352     0.1907 -34.268  < 2e-16 ***
+Sponge_SpeciesChondrilla  -4.2778     1.0180  -4.202 5.43e-05 ***
+Sponge_SpeciesChondrosia  -3.3439     1.0290  -3.250  0.00154 ** 
+Sponge_SpeciesCrambe       2.3600     0.2595   9.093 4.99e-15 ***
+Sponge_SpeciesPetrosia    -2.9142     0.4656  -6.258 7.84e-09 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -7.1785     0.4365 -16.445  < 2e-16 ***
+Sponge_SpeciesChondrilla -10.8432   144.1346  -0.075    0.940    
+Sponge_SpeciesChondrosia   0.5037     1.4723   0.342    0.733    
+Sponge_SpeciesCrambe       2.7597     0.5483   5.033 1.92e-06 ***
+Sponge_SpeciesPetrosia    -0.8823     0.7854  -1.123    0.264    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -233.15
+
+$Proteobacteria_Gammaproteobacteria_Alteromonadales_Pseudoalteromonadaceae_Pseudoalteromonas
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -5.5786     0.1410 -39.569  < 2e-16 ***
+Sponge_SpeciesChondrilla  -5.2344     1.0099  -5.183 1.01e-06 ***
+Sponge_SpeciesChondrosia  -4.3149     0.9964  -4.331 3.32e-05 ***
+Sponge_SpeciesCrambe      -0.2082     0.4675  -0.445    0.657    
+Sponge_SpeciesPetrosia    -4.4267     0.7676  -5.767 7.63e-08 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -6.8076     0.4130 -16.485  < 2e-16 ***
+Sponge_SpeciesChondrilla -11.2142   180.3391  -0.062 0.950530    
+Sponge_SpeciesChondrosia   0.1047     1.4102   0.074 0.940931    
+Sponge_SpeciesCrambe       2.6947     0.6971   3.866 0.000189 ***
+Sponge_SpeciesPetrosia    -0.5548     1.0807  -0.513 0.608713    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -173.84
+
+$Proteobacteria_Betaproteobacteria_Burkholderiales_Comamonadaceae_Curvibacter
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -9.7323     0.3822 -25.465  < 2e-16 ***
+Sponge_SpeciesChondrilla   1.1167     0.5072   2.202   0.0298 *  
+Sponge_SpeciesChondrosia   0.7608     0.4987   1.526   0.1300    
+Sponge_SpeciesCrambe       3.3596     0.4643   7.235 6.84e-11 ***
+Sponge_SpeciesPetrosia     2.4182     0.5243   4.612 1.09e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                -9.650      0.907 -10.639  < 2e-16 ***
+Sponge_SpeciesChondrilla   -8.372     89.068  -0.094 0.925287    
+Sponge_SpeciesChondrosia    0.671      1.357   0.495 0.621899    
+Sponge_SpeciesCrambe        3.543      1.043   3.398 0.000950 ***
+Sponge_SpeciesPetrosia      3.581      1.019   3.514 0.000644 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -204.57
+
+$Actinobacteria_Actinobacteria_Actinomycetales_Propionibacteriaceae_Propionibacterium
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -8.4237     0.1815 -46.402  < 2e-16 ***
+Sponge_SpeciesChondrilla  -0.7363     0.6460  -1.140  0.25685    
+Sponge_SpeciesChondrosia  -1.1790     0.4498  -2.621  0.01001 *  
+Sponge_SpeciesCrambe       1.2430     0.4156   2.991  0.00344 ** 
+Sponge_SpeciesPetrosia     0.2498     0.5708   0.438  0.66254    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)              -10.1217     1.1325  -8.938 1.12e-14 ***
+Sponge_SpeciesChondrilla   2.0297     1.7040   1.191  0.23619    
+Sponge_SpeciesChondrosia   0.8355     1.7623   0.474  0.63637    
+Sponge_SpeciesCrambe       4.0603     1.2706   3.196  0.00183 ** 
+Sponge_SpeciesPetrosia     4.0100     1.3131   3.054  0.00284 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -155.41
+
+$Proteobacteria_Betaproteobacteria_Burkholderiales_Comamonadaceae_Delftia
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)              -10.0737     0.7160 -14.069  < 2e-16 ***
+Sponge_SpeciesChondrilla   0.8253     0.9152   0.902  0.36913    
+Sponge_SpeciesChondrosia   0.3146     0.9160   0.343  0.73191    
+Sponge_SpeciesCrambe       2.4880     0.7938   3.134  0.00221 ** 
+Sponge_SpeciesPetrosia     2.1241     0.8160   2.603  0.01053 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -8.4709     1.1814  -7.170 9.47e-11 ***
+Sponge_SpeciesChondrilla  -0.2679     2.1029  -0.127    0.899    
+Sponge_SpeciesChondrosia   0.4016     1.5544   0.258    0.797    
+Sponge_SpeciesCrambe       1.4636     1.3588   1.077    0.284    
+Sponge_SpeciesPetrosia     1.9214     1.2911   1.488    0.140    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -142.93
+
+$Proteobacteria_Alphaproteobacteria_Sphingomonadales_Sphingomonadaceae_Novosphingobium
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -8.7564     0.5234 -16.728   <2e-16 ***
+Sponge_SpeciesChondrilla  -0.3797     0.7403  -0.513   0.6091    
+Sponge_SpeciesChondrosia  -3.0205     1.1287  -2.676   0.0086 ** 
+Sponge_SpeciesCrambe       1.0590     0.6220   1.703   0.0915 .  
+Sponge_SpeciesPetrosia     0.6321     0.6782   0.932   0.3534    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -7.4182     0.7495  -9.897   <2e-16 ***
+Sponge_SpeciesChondrilla  -1.5810     2.0486  -0.772    0.442    
+Sponge_SpeciesChondrosia -10.6031   142.1823  -0.075    0.941    
+Sponge_SpeciesCrambe       0.1688     1.0657   0.158    0.874    
+Sponge_SpeciesPetrosia     0.8985     0.9306   0.966    0.336    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -134.83
+
+$Proteobacteria_Gammaproteobacteria_Xanthomonadales_Xanthomonadaceae_Stenotrophomonas
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -6.7903     0.4308 -15.761  < 2e-16 ***
+Sponge_SpeciesChondrilla  -3.3295     0.8280  -4.021 0.000107 ***
+Sponge_SpeciesChondrosia  -2.9457     0.6198  -4.753 6.17e-06 ***
+Sponge_SpeciesCrambe       0.2618     0.5382   0.486 0.627626    
+Sponge_SpeciesPetrosia    -1.1119     0.7159  -1.553 0.123317    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                           Estimate Std. Error t value Pr(>|t|)    
+(Intercept)              -5.708e+00  5.451e-01 -10.472   <2e-16 ***
+Sponge_SpeciesChondrilla -1.231e+01  1.055e+02  -0.117   0.9073    
+Sponge_SpeciesChondrosia -3.448e+00  1.420e+00  -2.429   0.0168 *  
+Sponge_SpeciesCrambe      9.782e-03  7.411e-01   0.013   0.9895    
+Sponge_SpeciesPetrosia   -7.509e-04  8.858e-01  -0.001   0.9993    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -186.08
+
+$Proteobacteria_Gammaproteobacteria_Pseudomonadales_Pseudomonadaceae_Pseudomonas
+
+Call:
+bbdml(formula = forms[[i]], phi.formula = phi.form, data = ps_object)
+
+
+Coefficients associated with abundance:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -7.0262     0.4066 -17.280  < 2e-16 ***
+Sponge_SpeciesChondrilla  -2.6881     0.7062  -3.807 0.000233 ***
+Sponge_SpeciesChondrosia  -3.1155     0.7828  -3.980 0.000124 ***
+Sponge_SpeciesCrambe       0.6903     0.7276   0.949 0.344904    
+Sponge_SpeciesPetrosia    -2.1830     0.7014  -3.112 0.002372 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Coefficients associated with dispersion:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)               -6.0259     0.5570 -10.818   <2e-16 ***
+Sponge_SpeciesChondrilla -11.9959    89.7435  -0.134   0.8939    
+Sponge_SpeciesChondrosia  -2.2717     1.4532  -1.563   0.1209    
+Sponge_SpeciesCrambe       1.9887     0.9226   2.156   0.0333 *  
+Sponge_SpeciesPetrosia    -1.0797     0.9417  -1.147   0.2540    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Log-likelihood: -150.06
+
