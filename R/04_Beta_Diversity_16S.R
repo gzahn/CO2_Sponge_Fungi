@@ -60,8 +60,14 @@ ordu = ordinate(ps, "PCoA","unifrac", weighted=TRUE)
 plot_ordination(ps, ordu, color="Sponge_Species") +
   geom_point(size=3,alpha=.5) + scale_color_manual(values=pal.discrete) +
   labs(caption = "MDS/PCoA on weighted-UniFrac distance")
+
 ggsave("./output/figs/16S_W-Unifrac_Ordination_Plot_by_Sponge-Species.png",dpi=300)
 
+names(ps@sam_data)
+plot_ordination(ps, ordu, color="Sampling_Site",shape="Sponge_Species") +
+  geom_point(size=5,alpha=.5) + scale_color_manual(values=pal.discrete) +
+  labs(caption = "MDS/PCoA on weighted-UniFrac distance") + theme_minimal()
+ggsave("./output/figs/16S_W-Unifrac_Ordination_Plot_by_Sponge-Species_and_Sample_Site.png",dpi=300)
 
 # PERMANOVA ####
 set.seed(123)
