@@ -2,3 +2,4 @@ taxonomy/
 seqs/
 .Rproj.user
 output/trees/16S_ML_Distance.RDS
+.Rhistory

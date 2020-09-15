@@ -59,16 +59,27 @@ summary(sample_sums(ps))
 # get rid of samples that didn't sequence well
 ps <- subset_samples(ps,sample_sums(ps)>1000)
 
+#subset to Petrosia only
+ps_pet <- subset_samples(ps, Sponge_Species == "Petrosia")
+
 
 # quick alpha div plots
 plot_richness(ps,x="Acidified",measures = "Shannon") + 
   facet_grid(~Sponge_Species) + labs(y="Shannon diversity")
 ggsave("./output/figs/16S_Shannon_diversity_dotplot_by_Species_and_Acidification.png",dpi=300)
 
+plot_richness(ps_pet,x="Acidified",measures = "Shannon") + 
+  facet_grid(~Sponge_Species) + labs(y="Shannon diversity")
+ggsave("./output/figs/16S_Petrosia_Shannon_diversity_dotplot_by_Species_and_Acidification.png",dpi=300)
+
 
 # Calculate alpha diversity measures and add to metadata
 ps@sam_data$Shannon <- estimate_richness(ps, measures="Shannon")$Shannon
 ps@sam_data$Richness <- specnumber(otu_table(ps))
+ps_pet@sam_data$Shannon <- estimate_richness(ps_pet, measures="Shannon")$Shannon
+ps_pet@sam_data$Richness <- specnumber(otu_table(ps_pet))
+
+
 
 # Merge samples for plotting ####
 # merge based on sponge species and acidification
@@ -79,6 +90,14 @@ ps_merged <- merge_samples(ps,newvar)
 # repair metadata
 ps_merged@sam_data$Sponge_Species <- unlist(map(str_split(sample_names(ps_merged),"_"),1))
 ps_merged@sam_data$Acidified <- unlist(map(str_split(sample_names(ps_merged),"_"),2))
+
+# merge based on sampling_site
+ps_pet_merged <- merge_samples(ps_pet,"Sampling_Site")
+ps_pet_merged@sam_data$Sampling_Site <- row.names(ps_pet_merged@sam_data)
+
+# merge petrosia based on acidification
+ps_pet_merged_acid <- merge_samples(ps_pet,"Acidified")
+ps_pet_merged_acid@sam_data$Acidified <- row.names(ps_pet_merged_acid@sam_data)
 
 # Diversity BarPlots ####
 # stacked boxplots x-axis=Acidification, y-axis relative-abundance
@@ -95,6 +114,33 @@ ps_merged %>%
         strip.text = element_text(size=12,face="bold.italic")) +
   facet_wrap(~Sponge_Species,scales = "free")
 ggsave("./output/figs/16S_Phylum_Diversity_BarChart_by_Acidification.png",dpi=300,height=8,width=12)
+
+# petrosia-only by site
+ps_pet_merged %>%
+  transform_sample_counts(function(x){x/sum(x)}) %>%
+  plot_bar2(fill="Phylum",x="Sampling_Site") + scale_fill_manual(values = pal.discrete) + 
+  labs(y="Relative abundance",x="Sampling Site") +
+  theme(axis.text.x = element_text(angle = 60,hjust=1),
+        axis.title = element_text(face="bold",size=16),
+        axis.text = element_text(face="bold",size=12),
+        strip.background = element_blank(),
+        strip.text = element_text(size=12,face="bold.italic"),
+        legend.title = element_text(size=12,face="bold"))
+ggsave("./output/figs/16S_Petrosia_Phylum_Diversity_BarChart_by_Sampling_Site.png",dpi=300,height=8,width=12)
+
+# petrosia-only by acidification
+ps_pet_merged_acid %>%
+  transform_sample_counts(function(x){x/sum(x)}) %>%
+  plot_bar2(fill="Phylum",x="Acidified") + scale_fill_manual(values = pal.discrete) + 
+  labs(y="Relative abundance",x="Acidified") +
+  theme(axis.text.x = element_text(angle = 60,hjust=1),
+        axis.title = element_text(face="bold",size=16),
+        axis.text = element_text(face="bold",size=12),
+        strip.background = element_blank(),
+        strip.text = element_text(size=12,face="bold.italic"),
+        legend.title = element_text(size=12,face="bold"))
+ggsave("./output/figs/16S_Petrosia_Phylum_Diversity_BarChart_by_Acidification.png",dpi=300,height=8,width=12)
+
 
 # Class
 ps_merged %>%
@@ -231,3 +277,9 @@ p2 <- ggboxplot(meta, x = "pH", y = "Shannon",
 
 p1/p2
 ggsave("./output/figs/16S_Alpha-Diversity_Boxplots_over_pH.png",dpi=300,height = 8,width = 6)
+
+
+############################
+
+# Look at Petrosia species by itself ####
+

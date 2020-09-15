@@ -6,11 +6,11 @@ Call:
 vegan::mantel(xdis = spatial.dist, ydis = comm.dist) 
 
 Mantel statistic r: 0.05483 
-      Significance: 0.007 
+      Significance: 0.006 
 
 Upper quantiles of permutations (null model):
    90%    95%  97.5%    99% 
-0.0190 0.0260 0.0336 0.0446 
+0.0181 0.0279 0.0355 0.0487 
 Permutation: free
 Number of permutations: 999
 

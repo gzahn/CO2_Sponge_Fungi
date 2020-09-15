@@ -39,8 +39,13 @@ ps <- readRDS("./output/16S_clean_ps_object_w_tree.RDS")
 # remove "NA" Phylum taxa
 ps <- subset_taxa(ps,!is.na(tax_table(ps)[,2]))
 
+#subset to Petrosia only
+ps_pet <- subset_samples(ps, Sponge_Species == "Petrosia")
+
 # relative abundance transformation
 ps_ra <- ps %>% transform_sample_counts(function(x){x/sum(x)}) %>% subset_samples(Sponge_Species != "Seawater")
+ps_pet_ra <- ps_pet %>% transform_sample_counts(function(x){x/sum(x)})
+
 
 # MANTEL TEST AND MULTIPLE REGRESSION ON MATRICES ####
 spatial.dist = vegdist(as.matrix(cbind(ps_ra@sam_data$Latitude, ps_ra@sam_data$Longitude)),method = "bray")
@@ -54,6 +59,7 @@ sink(NULL)
 
 # Beta-diversity distances and ordinations ####
 unifrac.dist <- UniFrac(ps,weighted = TRUE,normalized = TRUE,parallel = TRUE)
+unifrac.dist.pet <- UniFrac(ps_pet,weighted = TRUE,normalized = TRUE,parallel = TRUE)
 
 glimpse(sample_data(ps))
 ordu = ordinate(ps, "PCoA","unifrac", weighted=TRUE)
@@ -69,12 +75,39 @@ plot_ordination(ps, ordu, color="Sampling_Site",shape="Sponge_Species") +
   labs(caption = "MDS/PCoA on weighted-UniFrac distance") + theme_minimal()
 ggsave("./output/figs/16S_W-Unifrac_Ordination_Plot_by_Sponge-Species_and_Sample_Site.png",dpi=300)
 
+
+# Petrosia only
+ordu = ordinate(ps_pet, "PCoA","unifrac", weighted=TRUE)
+plot_ordination(ps_pet, ordu, color="Sampling_Site") +
+  geom_point(size=3,alpha=.5) + scale_color_manual(values=pal.discrete) +
+  labs(caption = "MDS/PCoA on weighted-UniFrac distance",
+       subtitle = "Petrosia sp.") +
+  theme(plot.subtitle = element_text(face = "italic"))
+ggsave("./output/figs/16S_Petrosia_W-Unifrac_Ordination_Plot_by_Sample_Site.png",dpi=300)
+
+plot_ordination(ps_pet, ordu, color="Acidified") +
+  geom_point(size=3,alpha=.5) + scale_color_manual(values=pal.discrete) +
+  labs(caption = "MDS/PCoA on weighted-UniFrac distance",
+       subtitle = "Petrosia sp.") +
+  theme(plot.subtitle = element_text(face = "italic"))
+ggsave("./output/figs/16S_Petrosia_W-Unifrac_Ordination_Plot_by_Acidification.png",dpi=300)
+
+
 # PERMANOVA ####
 set.seed(123)
 permanova <- vegan::adonis(otu_table(ps_ra) ~ ps_ra@sam_data$Sampling_Site * ps_ra@sam_data$Sponge_Species)
 sink("./output/16S_permanova_comm-distance_vs_Site_and_Sponge-Species.txt")
 permanova
 sink(NULL)
+
+set.seed(123)
+permanova <- vegan::adonis(otu_table(ps_pet_ra) ~ ps_pet_ra@sam_data$Sampling_Site * ps_pet_ra@sam_data$Acidified)
+sink("./output/16S_Petrosia_permanova_comm-distance_vs_Site_and_Acidification.txt")
+permanova
+sink(NULL)
+
+
+
 
 # Beta-Dispersion
 w <- betadiver(otu_table(ps_ra),"w")
@@ -83,3 +116,11 @@ w.disper <- betadisper(w,group = meta(ps_ra)$Sponge_Species)
 png("./output/figs/16S_Beta_Dispersion_Plot_Sponge-Species.png")
 plot(w.disper,main = "Beta-Dispersion")
 dev.off()
+
+w <- betadiver(otu_table(ps_pet_ra),"w")
+w.disper <- betadisper(w,group = meta(ps_pet_ra)$Sampling_Site)
+
+png("./output/figs/16S_Petrosia_Beta_Dispersion_Plot_Sampling_Site.png")
+plot(w.disper)
+dev.off()
+

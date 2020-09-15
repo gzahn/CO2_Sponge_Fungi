@@ -48,6 +48,10 @@ rm(phy,cla,ord,fam,gen,spp,assignments_sponge,ps_sp)
 # remove "NA" Phylum taxa
 ps <- subset_taxa(ps,!is.na(tax_table(ps)[,2]))
 
+#subset to Petrosia only
+ps_pet <- subset_samples(ps, Sponge_Species == "Petrosia")
+
+
 # Look at available metadata
 glimpse(sample_data(ps))
 
@@ -81,6 +85,17 @@ ps_merged <- merge_samples(ps,newvar)
 # repair metadata
 ps_merged@sam_data$Sponge_Species <- unlist(map(str_split(sample_names(ps_merged),"_"),1))
 ps_merged@sam_data$Acidified <- unlist(map(str_split(sample_names(ps_merged),"_"),2))
+
+
+# merge based on sampling_site
+ps_pet_merged <- merge_samples(ps_pet,"Sampling_Site")
+ps_pet_merged@sam_data$Sampling_Site <- row.names(ps_pet_merged@sam_data)
+
+# merge petrosia based on acidification
+ps_pet_merged_acid <- merge_samples(ps_pet,"Acidified")
+ps_pet_merged_acid@sam_data$Acidified <- row.names(ps_pet_merged_acid@sam_data)
+
+
 
 # Quick heatmaps ####
 # phylum
@@ -132,6 +147,34 @@ ps_merged %>%
         strip.text = element_text(size=12,face="bold.italic")) +
     facet_wrap(~Sponge_Species,scales = "free")
 ggsave("./output/figs/Phylum_Diversity_BarChart_by_Acidification.png",dpi=300)
+
+
+# petrosia-only by site
+ps_pet_merged %>%
+  transform_sample_counts(function(x){x/sum(x)}) %>%
+  plot_bar2(fill="Phylum",x="Sampling_Site") + scale_fill_manual(values = pal.discrete) + 
+  labs(y="Relative abundance",x="Sampling Site") +
+  theme(axis.text.x = element_text(angle = 60,hjust=1),
+        axis.title = element_text(face="bold",size=16),
+        axis.text = element_text(face="bold",size=12),
+        strip.background = element_blank(),
+        strip.text = element_text(size=12,face="bold.italic"),
+        legend.title = element_text(size=12,face="bold"))
+ggsave("./output/figs/ITS_Petrosia_Phylum_Diversity_BarChart_by_Sampling_Site.png",dpi=300,height=8,width=12)
+
+# petrosia-only by acidification
+ps_pet_merged_acid %>%
+  transform_sample_counts(function(x){x/sum(x)}) %>%
+  plot_bar2(fill="Phylum",x="Acidified") + scale_fill_manual(values = pal.discrete) + 
+  labs(y="Relative abundance",x="Acidified") +
+  theme(axis.text.x = element_text(angle = 60,hjust=1),
+        axis.title = element_text(face="bold",size=16),
+        axis.text = element_text(face="bold",size=12),
+        strip.background = element_blank(),
+        strip.text = element_text(size=12,face="bold.italic"),
+        legend.title = element_text(size=12,face="bold"))
+ggsave("./output/figs/ITS_Petrosia_Phylum_Diversity_BarChart_by_Acidification.png",dpi=300,height=8,width=12)
+
 
 # Class
 ps_merged %>%

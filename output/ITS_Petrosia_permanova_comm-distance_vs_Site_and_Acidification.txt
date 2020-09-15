@@ -1,0 +1,13 @@
+
+Call:
+vegan::adonis(formula = otu_table(ps_pet_ra) ~ ps_pet_ra@sam_data$Sampling_Site *      ps_pet_ra@sam_data$Acidified) 
+
+Permutation: free
+Number of permutations: 999
+
+Terms added sequentially (first to last)
+
+                                 Df SumsOfSqs MeanSqs F.Model     R2 Pr(>F)
+ps_pet_ra@sam_data$Sampling_Site  4    1.7721 0.44302  1.0572 0.1992  0.288
+Residuals                        17    7.1239 0.41905         0.8008       
+Total                            21    8.8960                 1.0000       

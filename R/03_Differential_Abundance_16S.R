@@ -127,3 +127,58 @@ bbdml_plot_22/bbdml_plot_23/bbdml_plot_24/bbdml_plot_25/bbdml_plot_26/bbdml_plot
 ggsave("./output/figs/16S_DA_Taxa_Part4.png",dpi=300,height = 14,width = 12)
 bbdml_plot_29/bbdml_plot_30/bbdml_plot_31/bbdml_plot_32/bbdml_plot_33/bbdml_plot_24/bbdml_plot_25
 ggsave("./output/figs/16S_DA_Taxa_Part5.png",dpi=300,height = 14,width = 12)
+
+
+
+
+# Subset to Petrosia and run diffabund based on site and acidification ####
+
+
+ps_pet <- ps %>% subset_samples(Sponge_Species == "Petrosia") %>% tax_glom("Genus")
+ps_pet@sam_data
+
+set.seed(123)
+da_analysis <- differentialTest(formula = ~ Sampling_Site, #abundance
+                                phi.formula = ~ Sampling_Site, #dispersion
+                                formula_null = ~ 1, #mean
+                                phi.formula_null = ~ 1,
+                                test = "Wald", boot = FALSE,
+                                data = ps_pet,
+                                fdr_cutoff = 0.05)
+
+length(da_analysis$significant_models)
+
+#add taxonomic names to models
+sig_taxa <- as.data.frame(tax_table(ps)[da_analysis$significant_taxa,])
+sig_taxa <- mutate(sig_taxa,FullTaxonomy=paste(Phylum,Class,Order,Family,Genus,Species))
+names(da_analysis$significant_models) <- sig_taxa$FullTaxonomy
+names(da_analysis$significant_taxa) <- sig_taxa$FullTaxonomy
+
+
+plot(da_analysis) + theme(axis.text.x = element_text(face="italic"),
+                          strip.background = element_blank()) + labs(caption = "Differential abundance of significant genera; Wald test, FDR < 0.05")
+ggsave("./output/figs/16S_DA_Plot_Petrosia_by_Site_Overview.png",dpi = 300,width = 20,height = 8)
+
+# Acidification
+
+set.seed(123)
+da_analysis <- differentialTest(formula = ~ Acidified, #abundance
+                                phi.formula = ~ Acidified, #dispersion
+                                formula_null = ~ 1, #mean
+                                phi.formula_null = ~ 1,
+                                test = "Wald", boot = FALSE,
+                                data = ps_pet,
+                                fdr_cutoff = 0.05)
+
+length(da_analysis$significant_models)
+
+#add taxonomic names to models
+# sig_taxa <- as.data.frame(tax_table(ps)[da_analysis$significant_taxa,])
+# sig_taxa <- mutate(sig_taxa,FullTaxonomy=paste(Phylum,Class,Order,Family,Genus,Species))
+# names(da_analysis$significant_models) <- sig_taxa$FullTaxonomy
+# names(da_analysis$significant_taxa) <- sig_taxa$FullTaxonomy
+
+
+plot(da_analysis) + theme(axis.text.x = element_text(face="italic"),
+                          strip.background = element_blank()) + labs(caption = "Differential abundance of significant genera; Wald test, FDR < 0.05")
+ggsave("./output/figs/16S_DA_Plot_Petrosia_by_Acidification_Overview.png",dpi = 300,width = 12,height = 8)
