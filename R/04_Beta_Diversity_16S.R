@@ -39,6 +39,10 @@ ps <- readRDS("./output/16S_clean_ps_object_w_tree.RDS")
 # remove "NA" Phylum taxa
 ps <- subset_taxa(ps,!is.na(tax_table(ps)[,2]))
 
+# rarefaction curves
+mat <- ps@otu_table %>% as('matrix')
+rarecurve(mat,step = 500,label = FALSE,xlab="Read counts",ylab = "N taxa",main="Bacteria")
+
 #subset to Petrosia only
 ps_pet <- subset_samples(ps, Sponge_Species == "Petrosia")
 
